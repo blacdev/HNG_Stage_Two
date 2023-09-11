@@ -20,7 +20,7 @@ To test the API, you can use the following cURL commands. You can also use Postm
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>}`     |
+> | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>,"id":"user_id"}`     |
 > | `400`         | `application/json`                | `{"message":"Invalid email"}`                            |
 > | `400`         | `application/json`         | `{"message":"name already in use"}`    |
 > |`500` | `application/json` | `{"message":"failed to create user"}` |
@@ -28,14 +28,14 @@ To test the API, you can use the following cURL commands. You can also use Postm
 ##### Example cURL
 
 > ```javascript
->  curl -X POST -H "Content-Type: application/json" --data @post.json "http://localhost:8000/"
+>  curl -X POST -H "Content-Type: application/json" --data @post.json "http://localhost:8000/api"
 > ```
 >
 >```python
 >import requests
 >import json
 >
->url = "http://localhost:8000/"
+>url = "http://localhost:8000/api"
 >payload = {
 >  "name": "test",
 >  "email": "test@email.com"
@@ -71,21 +71,21 @@ To test the API, you can use the following cURL commands. You can also use Postm
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>}`     |
+> | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>,"id":"user_id"}`     |
 > | `400`         | `application/json`                | `{"message":"id or name is required"}`                            |
 > | `404`         | `application/json`         | `{"message":"user not found"}`    |
 
 ##### Example cURL
 
 > ```javascript
->  curl -X GET -H "Content-Type: application/json" "http://localhost:8000/{idorname}"
+>  curl -X GET -H "Content-Type: application/json" "http://localhost:8000/api/{idorname}"
 > ```
 
 >```python
 >import requests
 >import json
 >
->url = "http://localhost:8000/{idorname}"
+>url = "http://localhost:8000/api/{idorname}"
 >payload = {}
 >headers = {
 >  'Content-Type': 'application/json'
@@ -117,7 +117,7 @@ To test the API, you can use the following cURL commands. You can also use Postm
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>}`     |
+> | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>, "id":"user_id"}`     |
 > | `400`         | `application/json`                | `{"message":"Invalid email"}`                            |
 > | `400`         | `application/json`         | `{"message":"name already in use"}`    |
 > | `404`         | `application/json`         | `{"message":"user not found"}`    |
@@ -126,14 +126,14 @@ To test the API, you can use the following cURL commands. You can also use Postm
 ##### Example cURL
 
 > ```javascript
->  curl -X PUT -H "Content-Type: application/json" --data @put.json "http://localhost:8000/{idorname}"
+>  curl -X PUT -H "Content-Type: application/json" --data @put.json "http://localhost:8000/api/{idorname}"
 > ```
 
 >```python
 >import requests
 >import json
 >
->url = "http://localhost:8000/{idorname}"
+>url = "http://localhost:8000/api/{idorname}"
 >payload = {}
 >headers = {
 >  'Content-Type': 'application/json'
@@ -170,13 +170,13 @@ To test the API, you can use the following cURL commands. You can also use Postm
 ##### Example cURL
 
 > ```javascript
->  curl -X DELETE -H "Content-Type: application/json" "http://localhost:8000/{idorname}"
+>  curl -X DELETE -H "Content-Type: application/json" "http://localhost:8000/api/{idorname}"
 > ```
 >```python
 >import requests
 >import json
 >
->url = "http://localhost:8000/{idorname}"
+>url = "http://localhost:8000/api/{idorname}"
 >payload = {}
 >headers = {
 >  'Content-Type': 'application/json'
