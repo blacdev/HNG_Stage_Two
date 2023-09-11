@@ -46,8 +46,11 @@ After setting up the application, you can run it by running the following comman
 ## Testing
 
 You can run a test uisng postman:
+
 - Go to [Postman link](https://documenter.getpostman.com/view/16477483/2s9YC2zDJJ) and click on import to postman. If you do not have postman installed on your system, fork the collection and run it on postman web
-  ![Alt text](https://camo.githubusercontent.com/aa806d089441f9448c22448dc78f39b2fa5f4226cc34777b51e8619141235c24/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f616d6f73737061726b2f696d6167652f75706c6f61642f76313639343339353230362f436170747572655f6362746a74692e706e67)
+
+![Alt text](https://camo.githubusercontent.com/aa806d089441f9448c22448dc78f39b2fa5f4226cc34777b51e8619141235c24/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f616d6f73737061726b2f696d6167652f75706c6f61642f76313639343339353230362f436170747572655f6362746a74692e706e67)
+
 - Click on the dropdown of the collection then click on `Run collection`
 
 ## API Documentation
