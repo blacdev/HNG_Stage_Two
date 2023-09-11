@@ -35,6 +35,9 @@ Welcome to the documentation for our CRUD (Create, Read, Update, Delete) applica
 
           python main.py
 
+## API Documentation
+
+Click the [link](https://github.com/blacdev/HNG_Stage_Two/blob/staging/DOCUMENTATION.md) to read the api documentation.
 ## UML Diagrams
 
 We have provided UML diagrams for a visual representation of our application's structure. You can find the UML diagrams in the link below.
