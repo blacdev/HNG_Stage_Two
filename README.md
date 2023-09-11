@@ -58,3 +58,9 @@ Click the [link](https://github.com/blacdev/HNG_Stage_Two/blob/staging/DOCUMENTA
 We have provided UML diagrams for a visual representation of our application's structure. You can find the UML diagrams in the link below.
 
 [UML Diagrams](https://drive.google.com/file/d/1OBUdOP8uOIFK4KRb7FYqgTAUAhnLNm6-/view?usp=sharing)
+
+## E-R Diagram
+
+We have provided an E-R diagram for a visual representation of our application's database structure. You can find the E-R diagram in the link below.
+
+[E-R Diagram](https://dbdiagram.io/d/64fdd89102bd1c4a5e4a2aa6)
