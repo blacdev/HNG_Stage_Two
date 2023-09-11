@@ -39,13 +39,8 @@ class Database:
             return Person(
                 id = data.get("_id", ),
                 name= data.get("name"),
-                age = data.get("age"),
-                phone_number=data.get("phone_number"),
                 email=data.get("email"),
-                address= data.get("address"),
-                city= data.get("city"),
-                state= data.get("state"),
-                country= data.get("country"),
+
             )
         return None
 

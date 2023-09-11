@@ -45,13 +45,7 @@ async def update_person(idorname: str, request: User_update_schema ):
 	account, error = update_user(
 		user_object=account,
 		name=request.name,
-		age=request.age,
-		phone_number=request.phone_number,
 		email=request.email,
-		address=request.address,
-		city=request.city,
-		state=request.state,
-		country=request.country
 		)
 
 	if error:

@@ -1,5 +1,4 @@
 
-
 # CRUD Application Documentation
 
 Welcome to the documentation for our CRUD (Create, Read, Update, Delete) application. This documentation provides an overview of the CRUD operations, setup instructions for Windows, Linux, and macOS users, and includes a section on UML diagrams.

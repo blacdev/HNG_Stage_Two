@@ -4,22 +4,10 @@ from fastapi import HTTPException
 
 class User_schema(BaseModel):
     name: str
-    age: int
-    phone_number: str
     email: str
-    address: str
-    city: str
-    state: str
-    country: str
 
     # handle age validation
-    
-    @validator("age", pre=True, always=True)
-    def age_(cls, age):
-        if isinstance(age, int) is False:
-            raise HTTPException(status_code=400, detail="age must be an integer")
-        return age
-    
+  
 
 class User_Create_response(BaseModel):
     id: str
@@ -38,14 +26,6 @@ def user_response_serializer(account: Person):
         id=str(account.id),
         name=account.name,
         email=account.email,
-        age=account.age,
-        phone_number=account.phone_number,
-        address=account.address,
-        city=account.city,
-        state=account.state,
-        country=account.country,
-        created_at=account.created_at,
-        updated_at=account.updated_at
     )
 
 
