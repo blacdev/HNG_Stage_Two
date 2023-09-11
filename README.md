@@ -45,7 +45,9 @@ After setting up the application, you can run it by running the following comman
 
 ## Testing
 
-You can run a test uisng [Postman](https://app.getpostman.com/run-collection/16477483-93727f62-7e9f-4b04-94bd-0ad0f13aa104?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D16477483-93727f62-7e9f-4b04-94bd-0ad0f13aa104%26entityType%3Dcollection%26workspaceId%3Dc3ad3249-e44a-42fe-aa7b-8b5c424710b3)
+You can run a test uisng by:
+- Visting [Postman](https://documenter.getpostman.com/view/16477483/2s9YC2zDJJ)
+- Then fork the collection and run it on postman web or import it to your postman app.
 
 ## API Documentation
 
