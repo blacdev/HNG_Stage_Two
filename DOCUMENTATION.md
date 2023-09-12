@@ -22,9 +22,9 @@ To test the API, you can use the following cURL commands. You can also use Postm
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>,"id":"user_id"}`     |
-> | `400`         | `application/json`                | `{"message":"Invalid email"}`                            |
-> | `400`         | `application/json`         | `{"message":"name already in use"}`    |
-> |`500` | `application/json` | `{"message":"failed to create user"}` |
+> | `400`         | `application/json`                | `{"msg":"Invalid email"}`                            |
+> | `400`         | `application/json`         | `{"msg":"name already in use"}`    |
+> |`500` | `application/json` | `{"msg":"failed to create user"}` |
 
 ##### Example cURL
 
@@ -68,8 +68,8 @@ To test the API, you can use the following cURL commands. You can also use Postm
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>,"id":"user_id"}`     |
-> | `404`         | `application/json`         | `{"message":"no users found"}`    |
+> | `200`         | `application/json`        | `list({"name":<name stored>, "email":"<email stored>,"id":"user_id"})`     |
+> | `404`         | `application/json`         | `{"msg":"no users found"}`    |
 
 ##### Example cURL
 
@@ -113,8 +113,8 @@ To test the API, you can use the following cURL commands. You can also use Postm
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>,"id":"user_id"}`     |
-> | `400`         | `application/json`                | `{"message":"id or name is required"}`                            |
-> | `404`         | `application/json`         | `{"message":"user not found"}`    |
+> | `400`         | `application/json`                | `{"msg":"id or name is required"}`                            |
+> | `404`         | `application/json`         | `{"msg":"user not found"}`    |
  
 ##### Example cURL
 
@@ -159,10 +159,10 @@ To test the API, you can use the following cURL commands. You can also use Postm
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>, "id":"user_id"}`     |
-> | `400`         | `application/json`                | `{"message":"Invalid email"}`                            |
-> | `400`         | `application/json`         | `{"message":"name already in use"}`    |
-> | `404`         | `application/json`         | `{"message":"user not found"}`    |
-> |`500` | `application/json` | `{"message":"failed to update user"}` |
+> | `400`         | `application/json`                | `{"msg":"Invalid email"}`                            |
+> | `400`         | `application/json`         | `{"msg":"name already in use"}`    |
+> | `404`         | `application/json`         | `{"msg":"user not found"}`    |
+> |`500` | `application/json` | `{"msg":"failed to update user"}` |
 
 ##### Example cURL
 
@@ -204,9 +204,9 @@ To test the API, you can use the following cURL commands. You can also use Postm
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"message":"user deleted"}`     |
-> | `404`         | `application/json`         | `{"message":"user not found"}`    |
-> |`500` | `application/json` | `{"message":"failed to delete user"}` |
+> | `200`         | `application/json`        | `{"msg":"user deleted"}`     |
+> | `404`         | `application/json`         | `{"msg":"user not found"}`    |
+> |`500` | `application/json` | `{"msg":"failed to delete user"}` |
 
 ##### Example cURL
 

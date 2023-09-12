@@ -13,6 +13,9 @@ async def get_all_persons():
 
 		if error:
 			raise HTTPException(status_code=error.code, detail=error.msg)
+		
+		if accounts is None:
+			raise HTTPException(status_code=404, detail={"msg":"no users found"})
 		return [user_response_serializer(account) for account in accounts]
 
 # create a person
@@ -24,7 +27,7 @@ async def create_person(request: User_schema):
         raise HTTPException(status_code=error.code, detail=error.msg)
 
     if not account:
-        raise HTTPException(status_code=500, detail="failed to create account")
+        raise HTTPException(status_code=500, detail={"msg":"failed to create user"})
     
     return usercreate_response_serializer(account)
 
@@ -36,7 +39,7 @@ async def get_single_person(idorname: str):
 		if error:
 			raise HTTPException(status_code=error.code, detail=error.msg)
 		if not account:
-			raise HTTPException(status_code=404, detail="user not found")
+			raise HTTPException(status_code=404, detail={"msg":"user not found"})
 		return user_response_serializer(account)
 
 # update a person
@@ -48,7 +51,7 @@ async def update_person(idorname: str, request: User_update_schema ):
 		raise HTTPException(status_code=error.code, detail=error.msg)
 	
 	if not account:
-		raise HTTPException(status_code=404, detail="user not found")
+		raise HTTPException(status_code=404, detail={"msg":"user not found"})
 	
 	account, error = update_user(
 		user_object=account,
@@ -73,7 +76,7 @@ async def delete_person(idorname: str):
 		raise HTTPException(status_code=error.code, detail=error.msg)
 	
 	if not account:
-		raise HTTPException(status_code=404, detail="user not found")
+		raise HTTPException(status_code=404, detail={"msg":"user not found"})
 	
 	account, error = delete_user(account)
 
@@ -83,4 +86,4 @@ async def delete_person(idorname: str):
 	if not account:
 		raise HTTPException(status_code=500, detail="failed to delete account")
 	
-	return JSONResponse(status_code=200, content={"msg": "account deleted"})
+	return JSONResponse(status_code=200, content={"msg": "user deleted"})
