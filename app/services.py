@@ -33,6 +33,12 @@ def create_user(user:User_schema):
 
   return account, None
 
+# function to get all persons
+def get_all_users():
+
+  accounts = DB_CONNECT.fetch_all()
+  
+  return accounts, None
 
 #  function to get a single person
 def get_single_user(idOrName: str):

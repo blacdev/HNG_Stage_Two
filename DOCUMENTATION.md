@@ -1,4 +1,5 @@
-## API Documentation
+
+# API Documentation
 
 To test the API, you can use the following cURL commands. You can also use Postman or any other API testing tool.
 
@@ -47,9 +48,49 @@ To test the API, you can use the following cURL commands. You can also use Postm
 >response = requests.request("POST", url, headers=headers, data = json.dumps(payload))
 >
 >print(response.text.encode('utf8'))
+
+</details>
+
+------------------------------------------------------------------------------------------
+
+#### Get all users
+
+<details>
+ <summary><code>GET</code> <code><b>/</b></code><code>api</code><code>(Get all persons from a database)</code></summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                           |
+> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
+> | none      |  required | none  |none |
+
+##### Responses
+
+> | http code     | content-type                      | response                                                            |
+> |---------------|-----------------------------------|---------------------------------------------------------------------|
+> | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>,"id":"user_id"}`     |
+> | `404`         | `application/json`         | `{"message":"no users found"}`    |
+
+##### Example cURL
+
+> ```javascript
+>  curl -X GET -H "Content-Type: application/json" "http://localhost:8000/api"
+> ```
+
+>```python
+>import requests
+>import json
+>
+>url = "http://localhost:8000/api"
+>payload = {}
+>headers = {
+>  'Content-Type': 'application/json'
+>}
+>
+>response = requests.request("GET", url, headers=headers, data = payload)
+>
+>print(response.text.encode('utf8'))
 >```
-
-
 
 </details>
 
@@ -74,7 +115,7 @@ To test the API, you can use the following cURL commands. You can also use Postm
 > | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>,"id":"user_id"}`     |
 > | `400`         | `application/json`                | `{"message":"id or name is required"}`                            |
 > | `404`         | `application/json`         | `{"message":"user not found"}`    |
-
+ 
 ##### Example cURL
 
 > ```javascript

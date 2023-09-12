@@ -32,6 +32,17 @@ class Database:
     def create(self, data):
         self.collection.insert_one(data.to_dict())
 
+    def fetch_all(self,):
+        data = self.collection.find()
+        persons = []
+        for person in data:
+            persons.append(Person(
+                id = person.get("_id", ),
+                name= person.get("name"),
+                email=person.get("email"),
+            ))
+        return persons
+    
     def find_one(self, query_filter):
         data = self.collection.find_one(query_filter)
         

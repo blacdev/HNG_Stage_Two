@@ -1,11 +1,19 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 from app.schema import User_schema, User_update_schema, usercreate_response_serializer, user_response_serializer
-from app.services import create_user, get_single_user, update_user, delete_user
+from app.services import create_user, get_single_user, update_user, delete_user, get_all_users
 
 app = APIRouter()
 
 
+# get all persons
+@app.get("/api")
+async def get_all_persons():
+		accounts, error = get_all_users()
+
+		if error:
+			raise HTTPException(status_code=error.code, detail=error.msg)
+		return [user_response_serializer(account) for account in accounts]
 
 # create a person
 @app.post("/api")
