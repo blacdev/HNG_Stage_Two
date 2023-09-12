@@ -28,8 +28,9 @@ async def create_person(request: User_schema):
 
     if not account:
         return JSONResponse(status_code=500, content={"msg":"failed to create user"})
-    
-    return JSONResponse(usercreate_response_serializer(account), status_code=201)
+
+    return JSONResponse(content=usercreate_response_serializer(account).model_dump(), status_code=201)
+
 
 # get a single person
 @app.get("/api/{idorname}")
