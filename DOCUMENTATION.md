@@ -110,7 +110,7 @@ To test the API, you can use the following cURL commands. You can also use Postm
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"name":<name stored>,"id":"user_id"}`     |
+> | `201`         | `application/json`        | `{"name":<name stored>,"id":"user_id"}`     |
 > | `400`         | `application/json`                | `{"msg":"id or name is required"}`                            |
 > | `404`         | `application/json`         | `{"msg":"user not found"}`    |
  
@@ -155,7 +155,6 @@ To test the API, you can use the following cURL commands. You can also use Postm
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"name":<name stored>, "id":"user_id"}`     |
 > | `400`         | `application/json`         | `{"msg":"name already in use"}`    |
 > | `404`         | `application/json`         | `{"msg":"user not found"}`    |
 > |`500` | `application/json` | `{"msg":"failed to update user"}` |
@@ -200,7 +199,7 @@ To test the API, you can use the following cURL commands. You can also use Postm
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"msg":"user deleted"}`     |
+> | `204`         | `application/json`        | `{"msg":"user deleted"}`     |
 > | `404`         | `application/json`         | `{"msg":"user not found"}`    |
 > |`500` | `application/json` | `{"msg":"failed to delete user"}` |
 

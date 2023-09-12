@@ -29,7 +29,7 @@ async def create_person(request: User_schema):
     if not account:
         return JSONResponse(status_code=500, content={"msg":"failed to create user"})
     
-    return usercreate_response_serializer(account)
+    return JSONResponse(usercreate_response_serializer(account), status_code=201)
 
 # get a single person
 @app.get("/api/{idorname}")
@@ -85,4 +85,4 @@ async def delete_person(idorname: str):
 	if not account:
 		return JSONResponse(status_code=500, content={"msg":"failed to delete user"})
 	
-	return JSONResponse(status_code=200, content={"msg": "user deleted"})
+	return JSONResponse(status_code=204, content={"msg": "user deleted"})
