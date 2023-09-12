@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from app.schema import User_schema, User_update_schema, usercreate_response_serializer, user_response_serializer
 from app.services import create_user, get_single_user, update_user, delete_user, get_all_users
@@ -9,13 +9,10 @@ app = APIRouter()
 # get all persons
 @app.get("/api")
 async def get_all_persons():
-		accounts, error = get_all_users()
-
-		if error:
-			raise HTTPException(status_code=error.code, detail=error.msg)
+		accounts = get_all_users()
 		
 		if accounts is None:
-			raise HTTPException(status_code=404, detail={"msg":"no users found"})
+			return JSONResponse(status_code=404, content={"msg":"no users found"})
 		return [user_response_serializer(account) for account in accounts]
 
 # create a person
@@ -24,10 +21,10 @@ async def create_person(request: User_schema):
     account, error = create_user(request)
 
     if error:
-        raise HTTPException(status_code=error.code, detail=error.msg)
+        return JSONResponse(status_code=error.code, content={"msg":error.msg})
 
     if not account:
-        raise HTTPException(status_code=500, detail={"msg":"failed to create user"})
+        return JSONResponse(status_code=500, content={"msg":"failed to create user"})
     
     return usercreate_response_serializer(account)
 
@@ -37,9 +34,9 @@ async def get_single_person(idorname: str):
 		account, error = get_single_user(idorname)
         
 		if error:
-			raise HTTPException(status_code=error.code, detail=error.msg)
+			return JSONResponse(status_code=error.code, content={"msg":error.msg})
 		if not account:
-			raise HTTPException(status_code=404, detail={"msg":"user not found"})
+			return JSONResponse(status_code=404, content={"msg":"user not found"})
 		return user_response_serializer(account)
 
 # update a person
@@ -48,10 +45,10 @@ async def update_person(idorname: str, request: User_update_schema ):
 	account, error = get_single_user(idorname)
 
 	if error:
-		raise HTTPException(status_code=error.code, detail=error.msg)
+		return JSONResponse(status_code=error.code, content={"msg":error.msg})
 	
 	if not account:
-		raise HTTPException(status_code=404, detail={"msg":"user not found"})
+		return JSONResponse(status_code=404, content={"msg":"user not found"})
 	
 	account, error = update_user(
 		user_object=account,
@@ -60,10 +57,10 @@ async def update_person(idorname: str, request: User_update_schema ):
 		)
 
 	if error:
-		raise HTTPException(status_code=error.code, detail=error.msg)
+		return JSONResponse(status_code=error.code, content=error.msg)
 	
 	if not account:
-		raise HTTPException(status_code=500, detail="failed to update account")
+		return JSONResponse(status_code=500, content={"msg":"failed to update account"})
 	
 	return user_response_serializer(account)
 
@@ -73,17 +70,17 @@ async def delete_person(idorname: str):
 	account, error = get_single_user(idorname)
 
 	if error:
-		raise HTTPException(status_code=error.code, detail=error.msg)
+		return JSONResponse(status_code=error.code, content={"msg":error.msg})
 	
 	if not account:
-		raise HTTPException(status_code=404, detail={"msg":"user not found"})
+		return JSONResponse(status_code=404, content={"msg":"user not found"})
 	
 	account, error = delete_user(account)
 
 	if error:
-		raise HTTPException(status_code=error.code, detail=error.msg)
+		return JSONResponse(status_code=error.code, content={"msg":error.msg})
 	
 	if not account:
-		raise HTTPException(status_code=500, detail="failed to delete account")
+		return JSONResponse(status_code=500, content={"msg":"failed to delete account"})
 	
 	return JSONResponse(status_code=200, content={"msg": "user deleted"})
