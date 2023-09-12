@@ -60,7 +60,7 @@ async def update_person(idorname: str, request: User_update_schema ):
 		return JSONResponse(status_code=error.code, content=error.msg)
 	
 	if not account:
-		return JSONResponse(status_code=500, content={"msg":"failed to update account"})
+		return JSONResponse(status_code=500, content={"msg":"failed to update user"})
 	
 	return user_response_serializer(account)
 
@@ -81,6 +81,6 @@ async def delete_person(idorname: str):
 		return JSONResponse(status_code=error.code, content={"msg":error.msg})
 	
 	if not account:
-		return JSONResponse(status_code=500, content={"msg":"failed to delete account"})
+		return JSONResponse(status_code=500, content={"msg":"failed to delete user"})
 	
 	return JSONResponse(status_code=200, content={"msg": "user deleted"})
