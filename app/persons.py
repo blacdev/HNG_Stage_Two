@@ -9,7 +9,10 @@ app = APIRouter()
 # get all persons
 @app.get("/api")
 async def get_all_persons():
-		accounts = get_all_users()
+		accounts, Error = get_all_users()
+
+		if Error:
+			return JSONResponse(status_code=500, content={"msg":"failed to get users"})
 		
 		if accounts is None:
 			return JSONResponse(status_code=404, content={"msg":"no users found"})

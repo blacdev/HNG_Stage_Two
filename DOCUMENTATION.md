@@ -70,6 +70,7 @@ To test the API, you can use the following cURL commands. You can also use Postm
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `list({"name":<name stored>, "email":"<email stored>,"id":"user_id"})`     |
 > | `404`         | `application/json`         | `{"msg":"no users found"}`    |
+> |`500` | `application/json` | `{"msg":"failed to get users"}` |
 
 ##### Example cURL
 
