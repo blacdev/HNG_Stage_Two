@@ -6,13 +6,11 @@ class Person:
   def __init__(
       self,
       id: ObjectId,
-      name: str,
-      email: str,
+      name: str
 
   ):
     self.id = id
     self.name = name
-    self.email = email
     self.created_at = datetime.now()
     self.updated_at = datetime.now()
 
@@ -23,7 +21,6 @@ class Person:
     data = {
         "_id": self.id,
         "name": self.name,
-        "email": self.email,
         "created_at": self.created_at,
         "updated_at": self.updated_at
 

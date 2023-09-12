@@ -4,7 +4,6 @@ from fastapi import HTTPException
 
 class User_schema(BaseModel):
     name: str
-    email: str
 
     # handle age validation
   
@@ -12,7 +11,6 @@ class User_schema(BaseModel):
 class User_Create_response(BaseModel):
     id: str
     name: str
-    email: str
 
 class User_response(User_schema):
     id: str
@@ -25,7 +23,6 @@ def user_response_serializer(account: Person):
     return User_response(
         id=str(account.id),
         name=account.name,
-        email=account.email,
     )
 
 
@@ -34,6 +31,5 @@ def usercreate_response_serializer(account: Person):
 
     return User_Create_response(
         id=str(account.id),
-        email=account.email,
         name=account.name,
     )

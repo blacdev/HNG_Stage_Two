@@ -17,13 +17,6 @@ class Database:
         data = {
             "_id": self.id,
             "name": self.name,
-            "age": self.age,
-            "phone_number": self.phone_number,
-            "email": self.email,
-            "address": self.address,
-            "city": self.city,
-            "state": self.state,
-            "country": self.country,
             "created_at": self.created_at,
             "updated_at": self.updated_at
 
@@ -39,7 +32,6 @@ class Database:
             persons.append(Person(
                 id = person.get("_id", ),
                 name= person.get("name"),
-                email=person.get("email"),
             ))
         return persons
     
@@ -50,7 +42,6 @@ class Database:
             return Person(
                 id = data.get("_id", ),
                 name= data.get("name"),
-                email=data.get("email"),
 
             )
         return None

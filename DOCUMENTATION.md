@@ -15,14 +15,12 @@ To test the API, you can use the following cURL commands. You can also use Postm
 > | name      |  type     | data type               | description                                                           |
 > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
 > | name      |  required | json(string)  |name of user  |
-> | email     |  required | json(string)  |email of user |
 
 ##### Responses
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>,"id":"user_id"}`     |
-> | `400`         | `application/json`                | `{"msg":"Invalid email"}`                            |
+> | `200`         | `application/json`        | `{"name":<name stored>,"id":"user_id"}`     |
 > | `400`         | `application/json`         | `{"msg":"name already in use"}`    |
 > |`500` | `application/json` | `{"msg":"failed to create user"}` |
 
@@ -38,8 +36,7 @@ To test the API, you can use the following cURL commands. You can also use Postm
 >
 >url = "http://localhost:8000/api"
 >payload = {
->  "name": "test",
->  "email": "test@email.com"
+>  "name": "test"
 >}
 >headers = {
 >  'Content-Type': 'application/json'
@@ -68,7 +65,7 @@ To test the API, you can use the following cURL commands. You can also use Postm
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `list({"name":<name stored>, "email":"<email stored>,"id":"user_id"})`     |
+> | `200`         | `application/json`        | `list({"name":<name stored>,"id":"user_id"})`     |
 > | `404`         | `application/json`         | `{"msg":"no users found"}`    |
 > |`500` | `application/json` | `{"msg":"failed to get users"}` |
 
@@ -113,7 +110,7 @@ To test the API, you can use the following cURL commands. You can also use Postm
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>,"id":"user_id"}`     |
+> | `200`         | `application/json`        | `{"name":<name stored>,"id":"user_id"}`     |
 > | `400`         | `application/json`                | `{"msg":"id or name is required"}`                            |
 > | `404`         | `application/json`         | `{"msg":"user not found"}`    |
  
@@ -153,14 +150,12 @@ To test the API, you can use the following cURL commands. You can also use Postm
 > |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
 > | IdOrName      |  required | url(param)  |name or id of user |
 > | name      |  required | json(string)  |name of user  |
-> | email     |  required | json(string)  |email of user |
 
 ##### Responses
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `200`         | `application/json`        | `{"name":<name stored>, "email":"<email stored>, "id":"user_id"}`     |
-> | `400`         | `application/json`                | `{"msg":"Invalid email"}`                            |
+> | `200`         | `application/json`        | `{"name":<name stored>, "id":"user_id"}`     |
 > | `400`         | `application/json`         | `{"msg":"name already in use"}`    |
 > | `404`         | `application/json`         | `{"msg":"user not found"}`    |
 > |`500` | `application/json` | `{"msg":"failed to update user"}` |

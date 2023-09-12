@@ -2,8 +2,6 @@
 from app.schema import User_schema
 from app.models import Person
 from app.db import DB_CONNECT
-from app.settings import EMAIL_REGEX
-import re
 from app.Error import Error
 from bson.objectid import ObjectId
 from bson.errors import InvalidId
@@ -11,8 +9,6 @@ from datetime import datetime
 
 # function to create a person
 def create_user(user:User_schema):
-  if not is_valid_email(user.email):
-     return None, Error(msg="Invalid email", code=400)
   
   query_filter = {"name": user.name}
   if DB_CONNECT.count(query_filter) > 0:
@@ -21,7 +17,6 @@ def create_user(user:User_schema):
   account = Person(
      id = ObjectId(),
      name=user.name,
-     email= user.email,
 
   )
 
@@ -67,7 +62,6 @@ def get_single_user(idOrName: str):
 
 def update_user( 
     name: str = None,
-    email: str = None,
     user_object: Person = None,
 
 ):
@@ -81,12 +75,6 @@ def update_user(
        return None, Error("name already in use", 400)
     user_object.name = name
 
-  if email is not None:
-
-    if is_valid_email(email) == False:
-       return None, Error("invalid email", 400)
-    
-    user_object.email = email
   user_object.updated_at = datetime.now()
 
   try:
@@ -108,8 +96,3 @@ def delete_user(account: Person):
   except Exception:
     return None, Error("failed to delete account", 500)
      
-
-def is_valid_email(email):
-    if re.fullmatch(EMAIL_REGEX, email):
-        return True
-    return False

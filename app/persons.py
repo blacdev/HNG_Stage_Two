@@ -56,7 +56,6 @@ async def update_person(idorname: str, request: User_update_schema ):
 	account, error = update_user(
 		user_object=account,
 		name=request.name,
-		email=request.email,
 		)
 
 	if error:
